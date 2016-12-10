@@ -24,20 +24,23 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="object-folder/Pickups/" />
+        <folder expanded="1" path="object-folder/UI/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="file-folder/" />
         <folder expanded="0" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/money/" />
+        <folder expanded="1" path="animation-folder/clock/" />
+        <folder expanded="1" path="animation-folder/love/" />
+        <folder expanded="1" path="animation-folder/question/" />
+        <folder expanded="1" path="animation-folder/work/" />
         <folder expanded="1" path="animation-folder/player/" />
         <folder expanded="1" path="animation-folder/wall/" />
         <folder expanded="1" path="animation-folder/UI_Placeholder/" />
         <folder expanded="1" path="animation-folder/pickupSpawn/" />
-        <folder expanded="1" path="animation-folder/money/" />
-        <folder expanded="1" path="animation-folder/love/" />
-        <folder expanded="1" path="animation-folder/work/" />
-        <folder expanded="1" path="animation-folder/clock/" />
-        <folder expanded="1" path="animation-folder/question/" />
+        <folder expanded="1" path="animation-folder/controller/" />
     </folders-expanded>
 </c2uistate>
