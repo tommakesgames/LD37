@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="wallChangeNo" sid="996521037620640" static="0" type="number">5</variable>
+        <variable constant="0" name="numToggled" sid="697146622634014" static="0" type="number">0</variable>
+        <event-block sid="663406210347240">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="769263199952355" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="634104930973689" type="System">
+                    <param id="0" name="Group name">&quot;Wall toggle &quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Code for showing/unshowing walls</comment>
+        <event-group description="What&apos;s triggered when there&apos;s a wall toggle." inactive="1" sid="820239749881652" title="Wall toggle ">
+            <sub-events>
+                <event-block sid="148700903212016">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="524902251350323" type="System">
+                            <param id="0" name="Variable">numToggled</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">wallChangeNo</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block breakpoint="1" sid="623769275158328">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="833930162730512" type="System">
+                                    <param id="0" name="Object">wall</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-14" name="Toggle boolean" sid="520302289840493" type="wall">
+                                    <param id="0" name="Instance variable">showing</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="163912676845831" type="System">
+                                    <param id="0" name="Variable">numToggled</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="772118149854231">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="577088435011866" type="wall">
+                                            <param id="0" name="Instance variable">showing</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Solid" id="0" name="Set enabled" sid="300711484965878" type="wall">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="379227774988920" type="wall">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="254656674777420">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="332393828902027" type="wall">
+                                            <param id="0" name="Instance variable">showing</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Solid" id="0" name="Set enabled" sid="222167898831971" type="wall">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="851373197449019" type="wall">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="467721298664580">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="867819949010079" type="System">
+                            <param id="0" name="Variable">numToggled</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">wallChangeNo</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="397726599385123" type="System">
+                            <param id="0" name="Variable">numToggled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="985969751494713" type="System">
+                            <param id="0" name="Group name">&quot;Wall toggle &quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="825361950403490">
+            <conditions>
+                <condition id="0" name="On function" sid="655941208627720" type="Function">
+                    <param id="0" name="Name">&quot;fadeIn&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="330430997662266">
+            <conditions>
+                <condition id="0" name="On function" sid="285143287843177" type="Function">
+                    <param id="0" name="Name">&quot;fadeOut&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>
