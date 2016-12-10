@@ -3,7 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
-        <variable constant="0" name="wallChangeNo" sid="996521037620640" static="0" type="number">5</variable>
+        <variable constant="0" name="wallChangeNo" sid="996521037620640" static="0" type="number">50</variable>
         <variable constant="0" name="numToggled" sid="697146622634014" static="0" type="number">0</variable>
         <event-block sid="663406210347240">
             <conditions>
@@ -36,6 +36,9 @@
                                 <condition id="-16" name="Pick random instance" sid="833930162730512" type="System">
                                     <param id="0" name="Object">wall</param>
                                 </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="746169951073549" type="wall">
+                                    <param id="0" name="Instance variable">toggled</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-14" name="Toggle boolean" sid="520302289840493" type="wall">
@@ -43,6 +46,10 @@
                                 </action>
                                 <action id="-10" name="Add to" sid="163912676845831" type="System">
                                     <param id="0" name="Variable">numToggled</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="350984579224391" type="wall">
+                                    <param id="0" name="Instance variable">toggled</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -88,8 +95,15 @@
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Value">wallChangeNo</param>
                         </condition>
+                        <condition id="-11" name="For Each" sid="234545952932784" type="System">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
                     </conditions>
                     <actions>
+                        <action id="-13" name="Set boolean" sid="654603441325098" type="wall">
+                            <param id="0" name="Instance variable">toggled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-9" name="Set value" sid="397726599385123" type="System">
                             <param id="0" name="Variable">numToggled</param>
                             <param id="1" name="Value">0</param>

@@ -67,6 +67,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="showing" sid="396926877673447" type="boolean" />
+                <instance-variable name="toggled" sid="176582739162660" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="842152070375758">
@@ -93,6 +94,27 @@
         </object-type>
         <object-type name="Audio" sid="347842001350447">
             <plugin id="Audio" />
+        </object-type>
+        <object-type name="UI_Placeholder" sid="183772866708171">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="483676644369163">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="855108776697919" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="pickupSpawn" sid="102225349891683">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="873740387699766" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />
