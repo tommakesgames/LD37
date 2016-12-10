@@ -3,53 +3,89 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
-        <variable comment="Used to determine how many pickups toggle in an event" constant="0" name="pickupRatio" sid="301211126761455" static="0" type="number">0.75</variable>
-        <variable constant="0" name="loveSpawnNo" sid="996039219446582" static="0" type="number">5</variable>
-        <variable constant="0" name="workSpawnNo" sid="761481502261084" static="0" type="number">5</variable>
+        <variable comment="Ratio of question pickups" constant="0" name="questionRatio" sid="179695720171396" static="0" type="number">0.25</variable>
+        <variable comment="Ratio of money pickups" constant="0" name="moneyRatio" sid="161968366087585" static="0" type="number">0.25</variable>
+        <variable comment="Ratio of work pickups" constant="0" name="workRatio" sid="320118803750256" static="0" type="number">0.25</variable>
+        <variable comment="Ratio of love pickups" constant="0" name="loveRatio" sid="704332086379970" static="0" type="number">0.25</variable>
         <variable constant="0" name="clockSpawnNo" sid="999099241877839" static="0" type="number">1</variable>
+        <variable comment="How many pickups to start with" constant="0" name="pickupStartNo" sid="577135003482277" static="0" type="number">20</variable>
+        <variable comment="Used to determine how many pickups are changed in a refresh" constant="0" name="pickupRefreshRatio" sid="301211126761455" static="0" type="number">0.75</variable>
+        <variable comment="Actual number of pickups to place. Only set at start and is modified during gameplay" constant="0" name="pickupRefreshNo" sid="102225753156247" static="0" type="number">0</variable>
         <variable comment="How many money pickups are spawned each time" constant="0" name="moneySpawnNo" sid="759513699269510" static="0" type="number">5</variable>
-        <variable comment="How many walls should be changed" constant="0" name="wallChangeNo" sid="996521037620640" static="0" type="number">75</variable>
+        <variable comment="Actual number of pickups spawned" constant="0" name="workSpawnNo" sid="761481502261084" static="0" type="number">5</variable>
+        <variable constant="0" name="loveSpawnNo" sid="996039219446582" static="0" type="number">5</variable>
+        <variable comment="Number of question pickups" constant="0" name="questionSpawnNo" sid="109262036529221" static="0" type="number">0.1</variable>
+        <variable comment="How many walls should be changed" constant="0" name="wallChangeNo" sid="996521037620640" static="0" type="number">60</variable>
         <variable comment="Used to track how many walls have been toggled in the current event" constant="0" name="numToggled" sid="697146622634014" static="0" type="number">0</variable>
         <event-group description="What happens at the beginning of the game" sid="493581295250701" title="Setup">
             <sub-events>
-                <event-block sid="666667536071890">
+                <comment>Setup numbers to spawn</comment>
+                <event-block sid="490245254703935">
                     <conditions>
-                        <condition id="-11" name="For Each" sid="981936899499910" type="System">
-                            <param id="0" name="Object">pickups</param>
-                        </condition>
+                        <condition id="-2" name="On start of layout" sid="305491186407134" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="817884708123194" type="pickups" />
-                    </actions>
-                </event-block>
-                <event-block sid="984763511507994">
-                    <conditions>
-                        <condition id="-11" name="For Each" sid="788488508341511" type="System">
-                            <param id="0" name="Object">pickupSpawn</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-15" name="Set visible" sid="538515731213666" type="pickupSpawn">
-                            <param id="0" name="Visibility">0</param>
+                        <action id="-9" name="Set value" sid="994565793656541" type="System">
+                            <param id="0" name="Variable">loveSpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupStartNo*loveRatio)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="839551872888217" type="System">
+                            <param id="0" name="Variable">moneySpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupStartNo*moneyRatio)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="355291019141442" type="System">
+                            <param id="0" name="Variable">workSpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupStartNo*workRatio)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="410201718945288" type="System">
+                            <param id="0" name="Variable">questionSpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupStartNo*questionRatio)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="916166720481020" type="System">
+                            <param id="0" name="Variable">pickupRefreshNo</param>
+                            <param id="1" name="Value">ceil(pickupStartNo*pickupRefreshRatio)</param>
                         </action>
                     </actions>
-                </event-block>
-                <event-block sid="882711839092590">
-                    <conditions>
-                        <condition id="-15" name="Is group active" sid="741521571748639" type="System">
-                            <param id="0" name="Group name">&quot;Setup&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-12" name="Set group active" sid="621331705303555" type="System">
-                            <param id="0" name="Group name">&quot;Setup&quot;</param>
-                            <param id="1" name="State">0</param>
-                        </action>
-                    </actions>
+                    <sub-events>
+                        <event-block sid="666667536071890">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="981936899499910" type="System">
+                                    <param id="0" name="Object">pickups</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="817884708123194" type="pickups" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="984763511507994">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="788488508341511" type="System">
+                                    <param id="0" name="Object">pickupSpawn</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="538515731213666" type="pickupSpawn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="882711839092590">
+                            <conditions>
+                                <condition id="-15" name="Is group active" sid="741521571748639" type="System">
+                                    <param id="0" name="Group name">&quot;Setup&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="621331705303555" type="System">
+                                    <param id="0" name="Group name">&quot;Setup&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="988033434146883" title="Start of tick" />
         <event-group description="What&apos;s triggered when there&apos;s a wall toggle." inactive="1" sid="820239749881652" title="Wall toggle ">
             <sub-events>
                 <event-block sid="148700903212016">
@@ -147,7 +183,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="624517679775906" title="Controls">
+        <event-group description="" sid="624517679775906" title="Debug Controls">
             <sub-events>
                 <event-block sid="663406210347240">
                     <conditions>
@@ -162,11 +198,37 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="527742563119118">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="945046577468773" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="760406589450496" type="Function">
+                            <param id="0" name="Name">&quot;funcSpawnPickups&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="259126901316906">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="400518978183382" type="Keyboard">
+                            <param id="0" name="Key">82 (R)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="191205027155617" type="Function">
+                            <param id="0" name="Name">&quot;RespawnPickups&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="859484677858278" title="Spawn">
             <sub-events>
-                <event-group description="" sid="836878872716240" title="SpawnMoney">
+                <event-group description="" inactive="1" sid="836878872716240" title="SpawnMoney">
                     <sub-events>
                         <event-block sid="123842687486007">
                             <conditions>
@@ -192,10 +254,10 @@
                         </event-block>
                         <event-block sid="419854651700542">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="227914173544493" type="System">
-                                    <param id="0" name="Variable">moneySpawnNo</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">money.Count</param>
+                                <condition id="-8" name="Compare two values" sid="227914173544493" type="System">
+                                    <param id="0" name="First value">money.Count</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">moneySpawnNo</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -207,8 +269,9 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="305989253003938" title="SpawnClock">
+                <event-group description="" inactive="1" sid="305989253003938" title="SpawnClock">
                     <sub-events>
+                        <comment>Note that clocks do not have a ratio. It&apos;s a fixed number of 1/2.</comment>
                         <event-block sid="883800456569700">
                             <conditions>
                                 <condition id="-16" name="Pick random instance" sid="410938336812385" type="System">
@@ -233,10 +296,10 @@
                         </event-block>
                         <event-block sid="307016292032727">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="370297513329029" type="System">
-                                    <param id="0" name="Variable">clockSpawnNo</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">clock.Count</param>
+                                <condition id="-8" name="Compare two values" sid="370297513329029" type="System">
+                                    <param id="0" name="First value">clock.Count</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">clockSpawnNo</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -248,7 +311,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="970714369856525" title="SpawnLove">
+                <event-group description="" inactive="1" sid="970714369856525" title="SpawnLove">
                     <sub-events>
                         <event-block sid="262545900883548">
                             <conditions>
@@ -274,10 +337,10 @@
                         </event-block>
                         <event-block sid="295634695674655">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="174625314342945" type="System">
-                                    <param id="0" name="Variable">loveSpawnNo</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">love.Count</param>
+                                <condition id="-8" name="Compare two values" sid="174625314342945" type="System">
+                                    <param id="0" name="First value">love.Count</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">loveSpawnNo</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -289,7 +352,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="629658542346081" title="SpawnWork">
+                <event-group description="" inactive="1" sid="629658542346081" title="SpawnWork">
                     <sub-events>
                         <event-block sid="759684424246124">
                             <conditions>
@@ -315,10 +378,10 @@
                         </event-block>
                         <event-block sid="218013874275391">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="593250612142196" type="System">
-                                    <param id="0" name="Variable">workSpawnNo</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">work.Count</param>
+                                <condition id="-8" name="Compare two values" sid="593250612142196" type="System">
+                                    <param id="0" name="First value">work.Count</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">workSpawnNo</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -330,23 +393,165 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+                <event-group description="" inactive="1" sid="808240021680880" title="SpawnQuestion">
+                    <sub-events>
+                        <event-block sid="680035833575768">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="110974468100468" type="System">
+                                    <param id="0" name="Object">pickupSpawn</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="939155536105361" type="pickupSpawn">
+                                    <param id="0" name="Instance variable">beingUsed</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="944952675120218" type="System">
+                                    <param id="0" name="Object to create">question</param>
+                                    <param id="1" name="Layer">6</param>
+                                    <param id="2" name="X">pickupSpawn.X</param>
+                                    <param id="3" name="Y">pickupSpawn.Y</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="975683296251088" type="pickupSpawn">
+                                    <param id="0" name="Instance variable">beingUsed</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="760603524170645">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="590527529324301" type="System">
+                                    <param id="0" name="First value">question.Count</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">questionSpawnNo</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="683791376128671" type="System">
+                                    <param id="0" name="Group name">&quot;SpawnQuestion&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
-        <event-block sid="527742563119118">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="945046577468773" type="Keyboard">
-                    <param id="0" name="Key">83 (S)</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
+        <comment>Setting up numbers of pickups to spawn from ratios. Ending with resetting total number of pickups that will be refresh each time.</comment>
         <event-block sid="356129231232384">
             <conditions>
                 <condition id="0" name="On function" sid="508033337380616" type="Function">
-                    <param id="0" name="Name">&quot;Respawn&quot;</param>
+                    <param id="0" name="Name">&quot;funcSpawnPickups&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="112293507091342" type="System">
+                    <param id="0" name="Group name">&quot;SpawnMoney&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="397667973600631" type="System">
+                    <param id="0" name="Group name">&quot;SpawnClock&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="995289748747519" type="System">
+                    <param id="0" name="Group name">&quot;SpawnLove&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="493422797492230" type="System">
+                    <param id="0" name="Group name">&quot;SpawnWork&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="754482039737565" type="System">
+                    <param id="0" name="Group name">&quot;SpawnQuestion&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Start by setting numbers to number needed to repopulate</comment>
+        <event-block sid="615686809474672">
+            <conditions>
+                <condition id="0" name="On function" sid="831746554763442" type="Function">
+                    <param id="0" name="Name">&quot;RespawnPickups&quot;</param>
                 </condition>
             </conditions>
             <actions />
+            <sub-events>
+                <variable constant="0" name="pickupsDestroyed" sid="837638905986833" static="0" type="number">0</variable>
+                <event-block sid="557241782566355">
+                    <conditions>
+                        <condition id="-23" name="While" sid="939177749204225" type="System" />
+                        <condition id="-14" name="Compare variable" sid="738290444631211" type="System">
+                            <param id="0" name="Variable">pickupsDestroyed</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">pickupRefreshNo</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Choose a pickup, destroy it and reactivate the spawn point.</comment>
+                        <event-block sid="316033529330594">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="621580439333051" type="System">
+                                    <param id="0" name="Object">pickups</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="368774060666525">
+                                    <conditions>
+                                        <condition id="-36" name="Pick overlapping point" sid="958016176659804" type="System">
+                                            <param id="0" name="Object">pickupSpawn</param>
+                                            <param id="1" name="X">pickups.X</param>
+                                            <param id="2" name="Y">pickups.Y</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="347647617886141" type="pickupSpawn">
+                                            <param id="0" name="Instance variable">beingUsed</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="773120968889324" type="pickups" />
+                                        <action id="-10" name="Add to" sid="277031041059619" type="System">
+                                            <param id="0" name="Variable">pickupsDestroyed</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="287717454183540">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="612516941903207" type="System">
+                            <param id="0" name="Variable">pickupsDestroyed</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">pickupRefreshNo</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="559158630184413" type="System">
+                            <param id="0" name="Variable">loveSpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupRefreshNo*loveRatio)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="236790171389477" type="System">
+                            <param id="0" name="Variable">moneySpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupRefreshNo*moneyRatio)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="167243634193362" type="System">
+                            <param id="0" name="Variable">workSpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupRefreshNo*workRatio)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="280989406328771" type="System">
+                            <param id="0" name="Variable">questionSpawnNo</param>
+                            <param id="1" name="Value">ceil(pickupRefreshNo*questionRatio)</param>
+                        </action>
+                        <action id="0" name="Call function" sid="511061496861687" type="Function">
+                            <param id="0" name="Name">&quot;funcSpawnPickups&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

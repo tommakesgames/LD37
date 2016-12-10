@@ -151,6 +151,14 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="question" sid="810426735913795">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="896237538502503" speed="5">
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.555556" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="pickups" plugin-id="Sprite" sid="904098364492825">
@@ -158,6 +166,7 @@
                 <member>clock</member>
                 <member>love</member>
                 <member>money</member>
+                <member>question</member>
                 <member>work</member>
             </members>
         </family>
