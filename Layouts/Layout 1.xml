@@ -78,9 +78,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -113,9 +110,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -148,9 +142,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -183,9 +174,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -218,9 +206,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -253,9 +238,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -288,9 +270,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -323,9 +302,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -358,9 +334,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -393,9 +366,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -428,9 +398,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -463,9 +430,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -498,9 +462,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -533,9 +494,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -568,9 +526,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -603,9 +558,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -638,9 +590,6 @@
                     </properties>
                     <instance-variables>
                         <showing>true</showing>
-                        <sprOpacity>100</sprOpacity>
-                        <fadeStep>5</fadeStep>
-                        <fadeStepTime>0.5</fadeStepTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -661,33 +610,6 @@
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>1.570796371</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Text" uid="23">
-                    <properties>
-                        <text>Text</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-16</font>
-                        <color>0,0,0</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
-                        <hotspot>Top-left</hotspot>
-                        <wrapping>Word</wrapping>
-                        <line-height>0</line-height>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>16</x>
-                        <y>136</y>
-                        <z>0</z>
-                        <width>200</width>
-                        <height>30</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>

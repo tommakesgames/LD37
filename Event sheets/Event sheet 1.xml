@@ -31,7 +31,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block breakpoint="1" sid="623769275158328">
+                        <event-block sid="623769275158328">
                             <conditions>
                                 <condition id="-16" name="Pick random instance" sid="833930162730512" type="System">
                                     <param id="0" name="Object">wall</param>
@@ -102,21 +102,5 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="825361950403490">
-            <conditions>
-                <condition id="0" name="On function" sid="655941208627720" type="Function">
-                    <param id="0" name="Name">&quot;fadeIn&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
-        <event-block sid="330430997662266">
-            <conditions>
-                <condition id="0" name="On function" sid="285143287843177" type="Function">
-                    <param id="0" name="Name">&quot;fadeOut&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
     </events>
 </c2eventsheet>

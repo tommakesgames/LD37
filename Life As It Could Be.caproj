@@ -15,7 +15,6 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
-        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
@@ -68,9 +67,6 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="showing" sid="396926877673447" type="boolean" />
-                <instance-variable name="sprOpacity" sid="634951885748432" type="number" />
-                <instance-variable name="fadeStep" sid="592903029354367" type="number" />
-                <instance-variable name="fadeStepTime" sid="292625474706242" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="842152070375758">
@@ -97,9 +93,6 @@
         </object-type>
         <object-type name="Audio" sid="347842001350447">
             <plugin id="Audio" />
-        </object-type>
-        <object-type name="Text" sid="346955351985482">
-            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
