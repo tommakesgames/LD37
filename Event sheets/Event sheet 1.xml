@@ -3,9 +3,10 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="doggyErrorMargin" sid="319247155053183" static="0" type="number">2</variable>
         <variable constant="0" name="clockTimeBonus" sid="782456900303607" static="0" type="number">10</variable>
-        <variable constant="0" name="timerWallToggle" sid="941978129538352" static="0" type="number">3</variable>
-        <variable constant="0" name="timerRespawn" sid="135694524074405" static="0" type="number">6</variable>
+        <variable constant="0" name="timerWallToggle" sid="941978129538352" static="0" type="number">5</variable>
+        <variable constant="0" name="timerRespawn" sid="135694524074405" static="0" type="number">8</variable>
         <variable constant="0" name="timerFirstSpawn" sid="235094990185261" static="0" type="number">2</variable>
         <variable comment="Time left of game" constant="0" name="timeLeft" sid="847469797343101" static="0" type="number">60</variable>
         <variable constant="0" name="loveCollected" sid="366684612347328" static="0" type="number">0</variable>
@@ -76,9 +77,9 @@
                                 <action id="-9" name="Destroy" sid="817884708123194" type="pickups" />
                             </actions>
                         </event-block>
-                        <event-block sid="984763511507994">
+                        <event-block disabled="1" sid="984763511507994">
                             <conditions>
-                                <condition id="-11" name="For Each" sid="788488508341511" type="System">
+                                <condition disabled="1" id="-11" name="For Each" sid="788488508341511" type="System">
                                     <param id="0" name="Object">pickupSpawn</param>
                                 </condition>
                             </conditions>
@@ -193,6 +194,10 @@
                         <action id="-9" name="Set value" sid="397726599385123" type="System">
                             <param id="0" name="Variable">numToggled</param>
                             <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="516264620052145" type="Function">
+                            <param id="0" name="Name">&quot;dogPath&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                         <action id="-12" name="Set group active" sid="985969751494713" type="System">
                             <param id="0" name="Group name">&quot;Wall toggle &quot;</param>
@@ -764,6 +769,148 @@
                             <param id="1" name="State">1</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="354364555462344" title="Dog">
+            <sub-events>
+                <event-block sid="480333781702192">
+                    <conditions>
+                        <condition id="-21" name="Is between values" sid="920142178686626" type="System">
+                            <param id="0" name="Value">dog.X</param>
+                            <param id="1" name="Lower bound">dog.targetX-doggyErrorMargin</param>
+                            <param id="2" name="Upper bound">dog.targetX+doggyErrorMargin</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="177308026983668" type="System">
+                            <param id="0" name="Value">dog.Y</param>
+                            <param id="1" name="Lower bound">dog.targetY-doggyErrorMargin</param>
+                            <param id="2" name="Upper bound">dog.targetY+doggyErrorMargin</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="875423922115273" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="511327825035065" type="dog">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="330900363340425" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="0" name="Call function" sid="371428008961540" type="Function">
+                            <param id="0" name="Name">&quot;dogPath&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="946076762637480">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="116027648772667" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="229933826740363" type="dogSprite">
+                            <param id="0" name="Object">dog</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="687806898916829" type="dogSprite">
+                            <param id="0" name="Pin to">dog</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="493092961453159" type="dog">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="290707435932508">
+                    <conditions>
+                        <condition id="0" name="On function" sid="222553504985167" type="Function">
+                            <param id="0" name="Name">&quot;dogPath&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="444385491154592" type="Audio">
+                            <param id="0" name="Audio file">Cancel - 2</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="888586866689650">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="238652001318849" type="System">
+                                    <param id="0" name="Value">dog.X</param>
+                                    <param id="1" name="Lower bound">dog.X-30</param>
+                                    <param id="2" name="Upper bound">dog.X+30</param>
+                                </condition>
+                                <condition id="-21" name="Is between values" sid="197844124918904" type="System">
+                                    <param id="0" name="Value">dog.Y</param>
+                                    <param id="1" name="Lower bound">dog.Y-10</param>
+                                    <param id="2" name="Upper bound">dog.Y+10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="582475254580872" type="pickupSpawn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="687713548560905" type="dogSprite">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block disabled="1" sid="650838127521849">
+                                    <conditions>
+                                        <condition id="-16" name="Pick random instance" sid="298185814341713" type="System">
+                                            <param id="0" name="Object">pickupSpawn</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="912451287693747" type="target">
+                                            <param id="0" name="X">pickupSpawn.X</param>
+                                            <param id="1" name="Y">pickupSpawn.Y</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="648870673857753" type="dog">
+                                            <param id="0" name="Instance variable">targetX</param>
+                                            <param id="1" name="Value">pickupSpawn.X</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="669800931360091" type="dog">
+                                            <param id="0" name="Instance variable">targetY</param>
+                                            <param id="1" name="Value">pickupSpawn.Y</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block disabled="1" sid="992093201475184">
+                                            <conditions>
+                                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="362098846304077" type="dog">
+                                                    <param id="0" name="Object">pickupSpawn</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-22" name="Set angle toward position" sid="861601865939823" type="dog">
+                                                    <param id="0" name="X">pickupSpawn.X</param>
+                                                    <param id="1" name="Y">pickupSpawn.Y</param>
+                                                </action>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="960578151631402" type="dog">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block disabled="1" sid="563674763228571">
+                                            <conditions>
+                                                <condition behavior="LineOfSight" id="0" inverted="1" name="Has LOS to object" sid="772728526902212" type="dog">
+                                                    <param id="0" name="Object">pickupSpawn</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="726615253822829" type="Function">
+                                                    <param id="0" name="Name">&quot;dogPath&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>

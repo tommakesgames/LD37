@@ -26,6 +26,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="object-folder/" />
         <folder expanded="1" path="object-folder/Pickups/" />
         <folder expanded="1" path="object-folder/UI/" />
+        <folder expanded="1" path="object-folder/enemies/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="file-folder/" />
@@ -37,10 +38,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/love/" />
         <folder expanded="1" path="animation-folder/question/" />
         <folder expanded="1" path="animation-folder/work/" />
+        <folder expanded="1" path="animation-folder/dog/" />
+        <folder expanded="1" path="animation-folder/dogSprite/" />
         <folder expanded="1" path="animation-folder/player/" />
         <folder expanded="1" path="animation-folder/wall/" />
         <folder expanded="1" path="animation-folder/UI_Placeholder/" />
         <folder expanded="1" path="animation-folder/pickupSpawn/" />
         <folder expanded="1" path="animation-folder/controller/" />
+        <folder expanded="1" path="animation-folder/target/" />
     </folders-expanded>
 </c2uistate>

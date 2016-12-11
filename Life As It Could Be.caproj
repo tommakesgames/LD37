@@ -19,7 +19,10 @@
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -108,6 +111,52 @@
                 <plugin id="Text" />
             </object-type>
         </object-folder>
+        <object-folder name="enemies">
+            <object-type name="dog" sid="858583886018583">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="targetX" sid="500159588745599" type="number" />
+                    <instance-variable name="targetY" sid="604159476098811" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="LineOfSight" sid="550128858521323">
+                        <behavior id="LOS" />
+                    </behavior-type>
+                    <behavior-type name="Bullet" sid="317984286168845">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="496531206344845" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="dogSprite" sid="647140220621387">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="685657510032665">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="712327536297316" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Synapse\Documents\GitHub\LD37\sprites\dog.png">
+                            <collision-poly>
+                                <point x="0.0714286" y="0.0714286" />
+                                <point x="0.5" y="0.0714286" />
+                                <point x="0.857143" y="0.142857" />
+                                <point x="0.928571" y="0.5" />
+                                <point x="0.928571" y="0.928571" />
+                                <point x="0.5" y="0.928571" />
+                                <point x="0.142857" y="0.857143" />
+                                <point x="0.142857" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-type name="player" sid="255564918280192">
             <plugin id="Sprite" />
             <behaviors>
@@ -189,6 +238,14 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="807272752150219" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="target" sid="863361820597946">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="384260194434759" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
