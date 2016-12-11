@@ -4,9 +4,9 @@
     <name>Death</name>
     <events>
         <variable constant="0" name="deathErrorMargin" sid="371640326010787" static="0" type="number">2</variable>
-        <variable constant="0" name="deathSpeed" sid="514201636372204" static="0" type="number">15</variable>
+        <variable constant="0" name="deathSpeed" sid="514201636372204" static="0" type="number">3</variable>
         <variable constant="0" name="deathTargetRadius" sid="410631998185419" static="0" type="number">30</variable>
-        <variable constant="0" name="deathWaitTime" sid="682649405010714" static="0" type="number">0.1</variable>
+        <variable constant="0" name="deathWaitTime" sid="682649405010714" static="0" type="number">2</variable>
         <event-group description="" sid="309489177213947" title="Death">
             <sub-events>
                 <event-block sid="228797533020271">
@@ -34,30 +34,6 @@
                             <param id="0" name="Speed">0</param>
                         </action>
                     </actions>
-                </event-block>
-                <event-block sid="435280295712846">
-                    <conditions>
-                        <condition behavior="Bullet" id="0" name="Compare speed" sid="943913273194165" type="death">
-                            <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Speed">0</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="662156681748482">
-                            <conditions>
-                                <condition id="-6" name="Every X seconds" sid="788338521489748" type="System">
-                                    <param id="0" name="Interval (seconds)">deathWaitTime</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Call function" sid="715252366441612" type="Function">
-                                    <param id="0" name="Name">&quot;deathPath&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
                 <event-block sid="322368365137456">
                     <conditions>
@@ -98,13 +74,13 @@
                             </conditions>
                             <actions />
                             <sub-events>
+                                <comment>Death is now following the player.</comment>
                                 <event-block sid="402075122884650">
                                     <conditions>
-                                        <condition id="-16" name="Pick random instance" sid="595674179357652" type="System">
-                                            <param id="0" name="Object">pickupSpawn</param>
-                                        </condition>
-                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="255933560198233" type="deathSprite">
-                                            <param id="0" name="Object">pickupSpawn</param>
+                                        <condition id="-15" name="Pick nearest/furthest" sid="916027118872128" type="pickupSpawn">
+                                            <param id="0" name="Which">0</param>
+                                            <param id="1" name="X">player.X</param>
+                                            <param id="2" name="Y">player.Y</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -121,11 +97,7 @@
                                     <sub-events>
                                         <comment>THIS IS WHERE THE TARGET IS SELECTED - MORE CONDITIONS HERE IF NEED BE: If you have line of sight, start moving towards it.</comment>
                                         <event-block sid="665179122302601">
-                                            <conditions>
-                                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="200449508169796" type="death">
-                                                    <param id="0" name="Object">pickupSpawn</param>
-                                                </condition>
-                                            </conditions>
+                                            <conditions />
                                             <actions>
                                                 <action id="-3" name="Set position" sid="814990655427760" type="deathTarget">
                                                     <param id="0" name="X">pickupSpawn.X</param>
@@ -167,6 +139,23 @@
                     <actions>
                         <action behavior="Bullet" id="0" name="Set speed" sid="597686549220086" type="death">
                             <param id="0" name="Speed">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="435280295712846">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="943913273194165" type="death">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Speed">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="793540008766313" type="System">
+                            <param id="0" name="Seconds">deathWaitTime</param>
+                        </action>
+                        <action id="0" name="Call function" sid="715252366441612" type="Function">
+                            <param id="0" name="Name">&quot;deathPath&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>

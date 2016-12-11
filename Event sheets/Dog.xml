@@ -3,7 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Dog</name>
     <events>
-        <variable comment="How long it waits between searches for next point" constant="0" name="dogWaitTime" sid="317555597481516" static="0" type="number">0.2</variable>
+        <variable comment="How long it waits between searches for next point" constant="0" name="dogWaitTime" sid="317555597481516" static="0" type="number">0.05</variable>
         <variable constant="0" name="doggySpeed" sid="342352824165088" static="0" type="number">30</variable>
         <variable constant="0" name="dogTargetRadius" sid="334375029887103" static="0" type="number">30</variable>
         <variable constant="0" name="doggyErrorMargin" sid="319247155053183" static="0" type="number">2</variable>
