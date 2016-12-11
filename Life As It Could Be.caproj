@@ -27,7 +27,9 @@
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="setcolor">Set color</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -117,6 +119,7 @@
                 <instance-variables>
                     <instance-variable name="targetX" sid="500159588745599" type="number" />
                     <instance-variable name="targetY" sid="604159476098811" type="number" />
+                    <instance-variable name="needNewTarget" sid="294569185368181" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="LineOfSight" sid="550128858521323">
@@ -153,6 +156,14 @@
                                 <point x="0.142857" y="0.5" />
                             </collision-poly>
                         </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="dogTarget" sid="863361820597946">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="384260194434759" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -223,6 +234,11 @@
             <instance-variables>
                 <instance-variable name="beingUsed" sid="528602678852378" type="boolean" />
             </instance-variables>
+            <effects>
+                <effect-type name="SetColor">
+                    <effect id="setcolor" />
+                </effect-type>
+            </effects>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="873740387699766" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -231,6 +247,9 @@
         </object-type>
         <object-type name="controller" sid="429676010830542">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="wallChangeFinished" sid="767793855375776" type="boolean" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Timer" sid="791365843711367">
                     <behavior id="Timer" />
@@ -238,14 +257,6 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="807272752150219" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="target" sid="863361820597946">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="384260194434759" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
