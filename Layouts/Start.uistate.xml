@@ -5,16 +5,16 @@ It is entirely optional and the project will load without it.  If you are placin
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
         <position-x>112</position-x>
-        <position-y>136.158</position-y>
-        <position-z>38.8755</position-z>
+        <position-y>113.325</position-y>
+        <position-z>35.0494</position-z>
         <lookat-x>112</lookat-x>
-        <lookat-y>136.158</lookat-y>
+        <lookat-y>113.325</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>1</snap-to-grid>
-    <show-grid>0</show-grid>
-    <snap-width>4</snap-width>
-    <snap-height>4</snap-height>
+    <show-grid>1</show-grid>
+    <snap-width>8</snap-width>
+    <snap-height>8</snap-height>
     <show-collision-polys>0</show-collision-polys>
     <translucent-inactive-layers>0</translucent-inactive-layers>
     <properties>
@@ -25,14 +25,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <active-layer name="UI" />
     <layers>
-        <layer locked="1" name="background" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="vert" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="hori" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="Player" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="pickups" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="spawnPoints" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="enemies" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="background" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="vert" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="hori" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Player" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="pickups" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="spawnPoints" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="enemies" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="UI" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="scanlines" parallax-in-editor="0" visible="1" />
     </layers>
 </c2uistate>

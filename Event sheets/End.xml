@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>End</name>
+    <events>
+        <variable constant="0" name="tempScore" sid="932679943724179" static="0" type="number">0</variable>
+        <variable constant="0" name="revealWaitTime" sid="365983845686876" static="0" type="number">0.8</variable>
+        <variable constant="0" name="totalPickups" sid="507343976786978" static="0" type="number">0</variable>
+        <variable constant="0" name="finalScore" sid="217870059735672" static="0" type="number">300</variable>
+        <comment>Display pickup numbers/score from level</comment>
+        <event-block sid="168096218444699">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="486467242770750" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="751998775202394" type="LoveText">
+                    <param id="0" name="Text">loveCollected</param>
+                </action>
+                <action id="0" name="Set text" sid="395586946953342" type="MoneyText">
+                    <param id="0" name="Text">moneyCollected</param>
+                </action>
+                <action id="0" name="Set text" sid="256369915973429" type="QuestionText">
+                    <param id="0" name="Text">questionCollected</param>
+                </action>
+                <action id="0" name="Set text" sid="241599117332115" type="WorkText">
+                    <param id="0" name="Text">workCollected</param>
+                </action>
+                <action id="-9" name="Set value" sid="882177813870420" type="System">
+                    <param id="0" name="Variable">totalPickups</param>
+                    <param id="1" name="Value">loveCollected+moneyCollected+workCollected+questionCollected</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Calculate final score</comment>
+        <event-block sid="547158651996171">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="974446715944362" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="153353676910398">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="675814207473766" type="System">
+                            <param id="0" name="Variable">moneyCollected</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">round(totalPickups*0.4)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="528176906901066" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">moneyCollected*30</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="817819672158357">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="254587718354455" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="591449772672783" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">moneyCollected*60</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="594513253101368">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="462159692953198" type="System">
+                            <param id="0" name="Variable">workCollected</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">round(totalPickups*0.5)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="367870276127460" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">workCollected*40</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="980871304997771">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="744475867570965" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="373944841387295" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">workCollected*70</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="456474725407166">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="904501859251631" type="System">
+                            <param id="0" name="Variable">questionCollected</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">round(totalPickups*0.3)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="522032531238506" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">questionCollected*30</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="541426230447701">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="719921729619138" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="960094266402949" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">questionCollected*80</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="666893482390834">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="214611109273192" type="System">
+                            <param id="0" name="Variable">moneyCollected</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">round(totalPickups*0.5)</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="707865404487331" type="System">
+                            <param id="0" name="Variable">workCollected</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">round(totalPickups*0.5)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="764450992404183" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">loveCollected*60</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="627848654723879">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="922420956483401" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="767307945586833" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">loveCollected*100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="435623919075363">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="768343723353339" type="System">
+                            <param id="0" name="Variable">moneyCollected</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">round(totalPickups*0.15)</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="770243157007383" type="System">
+                            <param id="0" name="Variable">workCollected</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">round(totalPickups*0.25)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="303431747105445" type="System">
+                            <param id="0" name="Variable">finalScore</param>
+                            <param id="1" name="Value">finalScore*0.75</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="949604544960185">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="544949429410549" type="System">
+                    <param id="0" name="Variable">tempScore</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">finalScore</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="436949320724630" type="System">
+                    <param id="0" name="Variable">tempScore</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="0" name="Set text" sid="322198684913515" type="ScoreText">
+                    <param id="0" name="Text">tempScore</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="636361108988874">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="473159592599263" type="System">
+                    <param id="0" name="Variable">tempScore</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">finalScore</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="603684114342143" type="System">
+                    <param id="0" name="Variable">tempScore</param>
+                    <param id="1" name="Value">finalScore</param>
+                </action>
+                <action id="0" name="Set text" sid="538696430137835" type="ScoreText">
+                    <param id="0" name="Text">tempScore</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

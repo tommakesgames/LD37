@@ -15,7 +15,9 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
@@ -128,6 +130,49 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Sprite5" sid="723662205824207">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="241237382615323" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Synapse\Documents\GitHub\LD37\sprites\money.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Sprite4" sid="547280491847548">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="615330258118793" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Synapse\Documents\GitHub\LD37\sprites\work.png">
+                            <collision-poly>
+                                <point x="0.5" y="0" />
+                                <point x="1" y="0.5" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Sprite6" sid="175904195271407">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="885429442618837" speed="5">
+                        <frame duration="1" hotspotX="0.555556" hotspotY="0.555556" original-source="C:\Users\Synapse\Documents\GitHub\LD37\sprites\question.png">
+                            <collision-poly>
+                                <point x="0.111111" y="0.111111" />
+                                <point x="0.444444" y="0" />
+                                <point x="0.888889" y="0.111111" />
+                                <point x="1" y="0.444444" />
+                                <point x="0.888889" y="0.888889" />
+                                <point x="0.444444" y="1" />
+                                <point x="0.111111" y="0.888889" />
+                                <point x="0" y="0.444444" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="enemies">
             <object-type name="dog" sid="858583886018583">
@@ -185,14 +230,6 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="977723088151164" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    </animation>
-                </animation-folder>
-            </object-type>
-            <object-type name="Sprite2" sid="415634680588996">
-                <plugin id="Sprite" />
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="307497091885219" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -331,49 +368,40 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Text" sid="751133562668893">
+        <object-type name="Title" sid="751133562668893">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Sprite4" sid="547280491847548">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="615330258118793" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Synapse\Documents\GitHub\LD37\sprites\work.png">
-                        <collision-poly>
-                            <point x="0.5" y="0" />
-                            <point x="1" y="0.5" />
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
+        <object-type name="TiledBackground" sid="285122593018344">
+            <plugin id="TiledBg" />
+            <texture />
         </object-type>
-        <object-type name="Sprite5" sid="723662205824207">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="241237382615323" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Synapse\Documents\GitHub\LD37\sprites\money.png" />
-                </animation>
-            </animation-folder>
+        <object-type name="ScoreLabel" sid="105637717306547">
+            <plugin id="Text" />
         </object-type>
-        <object-type name="Sprite6" sid="175904195271407">
+        <object-type name="ScoreText" sid="984647285345705">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text" sid="802755387945250">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text2" sid="112315037577322">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text3" sid="239734998201578">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text4" sid="851886970020350">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="SpriteFont" sid="159244612612544">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="arrow" sid="873119380408998">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="885429442618837" speed="5">
-                    <frame duration="1" hotspotX="0.555556" hotspotY="0.555556" original-source="C:\Users\Synapse\Documents\GitHub\LD37\sprites\question.png">
-                        <collision-poly>
-                            <point x="0.111111" y="0.111111" />
-                            <point x="0.444444" y="0" />
-                            <point x="0.888889" y="0.111111" />
-                            <point x="1" y="0.444444" />
-                            <point x="0.888889" y="0.888889" />
-                            <point x="0.444444" y="1" />
-                            <point x="0.111111" y="0.888889" />
-                            <point x="0" y="0.444444" />
-                        </collision-poly>
-                    </frame>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="892139942676797" speed="5">
+                    <frame duration="1" hotspotX="0.529412" hotspotY="0.529412" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -400,14 +428,16 @@
         </family>
     </families>
     <layout-folder>
+        <layout>Start.xml</layout>
         <layout>Level.xml</layout>
         <layout>End.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Level.xml</event-sheet>
         <event-sheet>Dog.xml</event-sheet>
         <event-sheet>Death.xml</event-sheet>
-        <event-sheet>Event sheet 2.xml</event-sheet>
+        <event-sheet>End.xml</event-sheet>
+        <event-sheet>Event sheet 1.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="7" />
