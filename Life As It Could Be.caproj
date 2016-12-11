@@ -15,10 +15,12 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
@@ -30,7 +32,7 @@
         <width>224</width>
         <height>256</height>
     </window-size>
-    <pixel-rounding>0</pixel-rounding>
+    <pixel-rounding>1</pixel-rounding>
     <preview-effects>1</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
@@ -43,10 +45,69 @@
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preview browser">(default)</prop>
-        <prop name="Sampling">Linear</prop>
-        <prop name="Use high-DPI display">Yes</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">No</prop>
     </configuration-settings>
     <object-folder>
+        <object-folder name="Pickups">
+            <object-type name="money" sid="849823945098822">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="981010267676724" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="clock" sid="993121169635760">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="215657996022354" speed="5">
+                        <frame duration="1" hotspotX="0.555556" hotspotY="0.555556" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="love" sid="705410176582716">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="307360247691038" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="question" sid="810426735913795">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="896237538502503" speed="5">
+                        <frame duration="1" hotspotX="0.555556" hotspotY="0.555556" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="work" sid="926274754780074">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="212718438303156" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="UI">
+            <object-type name="LoveText" sid="595979763312249">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="WorkText" sid="532025932023317">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="QuestionText" sid="180068317851303">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="MoneyText" sid="618458012254930">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="TimeText" sid="507971436973244">
+                <plugin id="Text" />
+            </object-type>
+        </object-folder>
         <object-type name="player" sid="255564918280192">
             <plugin id="Sprite" />
             <behaviors>
@@ -67,6 +128,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="showing" sid="396926877673447" type="boolean" />
+                <instance-variable name="toggled" sid="176582739162660" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="842152070375758">
@@ -94,8 +156,55 @@
         <object-type name="Audio" sid="347842001350447">
             <plugin id="Audio" />
         </object-type>
+        <object-type name="UI_Placeholder" sid="183772866708171">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="483676644369163">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="855108776697919" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="pickupSpawn" sid="102225349891683">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="beingUsed" sid="528602678852378" type="boolean" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="873740387699766" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="controller" sid="429676010830542">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Timer" sid="791365843711367">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="807272752150219" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="pickups" plugin-id="Sprite" sid="904098364492825">
+            <members>
+                <member>clock</member>
+                <member>love</member>
+                <member>money</member>
+                <member>question</member>
+                <member>work</member>
+            </members>
+        </family>
+    </families>
     <layout-folder>
         <layout>Layout 1.xml</layout>
     </layout-folder>
