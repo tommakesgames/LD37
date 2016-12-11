@@ -9,7 +9,7 @@
         <variable constant="0" name="timerWallToggle" sid="941978129538352" static="0" type="number">5</variable>
         <variable constant="0" name="timerRespawn" sid="135694524074405" static="0" type="number">8</variable>
         <variable constant="0" name="timerFirstSpawn" sid="235094990185261" static="0" type="number">2</variable>
-        <variable comment="Time left of game" constant="0" name="timeLeft" sid="847469797343101" static="0" type="number">60</variable>
+        <variable comment="Time left of game" constant="0" name="timeLeft" sid="847469797343101" static="0" type="number">10</variable>
         <variable constant="0" name="loveCollected" sid="366684612347328" static="0" type="number">0</variable>
         <variable constant="0" name="moneyCollected" sid="138045514530306" static="0" type="number">0</variable>
         <variable constant="0" name="workCollected" sid="382201798831576" static="0" type="number">0</variable>
@@ -703,16 +703,16 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="494614747606902" type="LoveText">
-                            <param id="0" name="Text">&quot;LOVE: &quot; &amp; loveCollected</param>
+                            <param id="0" name="Text">loveCollected</param>
                         </action>
                         <action id="0" name="Set text" sid="445471793390609" type="MoneyText">
-                            <param id="0" name="Text">&quot;MONEY: &quot; &amp; moneyCollected</param>
+                            <param id="0" name="Text">moneyCollected</param>
                         </action>
                         <action id="0" name="Set text" sid="559217796591963" type="QuestionText">
-                            <param id="0" name="Text">&quot;???: &quot; &amp; questionCollected</param>
+                            <param id="0" name="Text">questionCollected</param>
                         </action>
                         <action id="0" name="Set text" sid="397655643889166" type="WorkText">
-                            <param id="0" name="Text">&quot;WORK: &quot; &amp; workCollected</param>
+                            <param id="0" name="Text">workCollected</param>
                         </action>
                         <action id="0" name="Set text" sid="437537583959477" type="TimeText">
                             <param id="0" name="Text">timeLeft &amp; &quot;s&quot;</param>
@@ -723,6 +723,11 @@
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="318242223667458" type="System">
                             <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="745197479408145" type="System">
+                            <param id="0" name="Variable">timeLeft</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -795,6 +800,28 @@
                         <action id="-12" name="Set group active" sid="563379649694394" type="System">
                             <param id="0" name="Group name">&quot;Wall toggle &quot;</param>
                             <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Pause at end of game of major characters/bits</comment>
+                <event-block sid="560334186226370">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="403994599303868" type="System">
+                            <param id="0" name="Variable">timeLeft</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Set object time scale" sid="272526635915644" type="System">
+                            <param id="0" name="Object">GameEndPause</param>
+                            <param id="1" name="Time scale">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="288443649167016" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-43" name="Go to next/previous layout" sid="103932365227593" type="System">
+                            <param id="0" name="Which">0</param>
                         </action>
                     </actions>
                 </event-block>

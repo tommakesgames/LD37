@@ -10,8 +10,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="0">Layout 1</layout>
-        <event-sheet active="1" order="1">Event sheet 1</event-sheet>
+        <layout active="1" order="0">Level</layout>
+        <layout order="4">End</layout>
+        <event-sheet order="1">Event sheet 1</event-sheet>
         <event-sheet order="2">Dog</event-sheet>
         <event-sheet order="3">Death</event-sheet>
     </open-tabs>
@@ -23,23 +24,25 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1">
         <family expanded="0" name="pickups" />
+        <family expanded="0" name="GameEndPause" />
     </families-expanded>
     <folders-expanded>
-        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/" />
         <folder expanded="0" path="object-folder/Pickups/" />
-        <folder expanded="1" path="object-folder/UI/" />
+        <folder expanded="0" path="object-folder/UI/" />
         <folder expanded="0" path="object-folder/enemies/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="file-folder/" />
-        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
-        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/money/" />
         <folder expanded="1" path="animation-folder/clock/" />
         <folder expanded="1" path="animation-folder/love/" />
         <folder expanded="1" path="animation-folder/question/" />
         <folder expanded="1" path="animation-folder/work/" />
+        <folder expanded="1" path="animation-folder/Sprite3/" />
         <folder expanded="1" path="animation-folder/dog/" />
         <folder expanded="1" path="animation-folder/dogSprite/" />
         <folder expanded="1" path="animation-folder/dogTarget/" />
@@ -53,5 +56,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/UI_Placeholder/" />
         <folder expanded="1" path="animation-folder/pickupSpawn/" />
         <folder expanded="1" path="animation-folder/controller/" />
+        <folder expanded="1" path="animation-folder/Sprite4/" />
+        <folder expanded="1" path="animation-folder/Sprite5/" />
+        <folder expanded="1" path="animation-folder/Sprite6/" />
     </folders-expanded>
 </c2uistate>
