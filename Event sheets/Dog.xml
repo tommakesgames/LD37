@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Dog</name>
+    <events>
+        <variable comment="How long it waits between searches for next point" constant="0" name="dogWaitTime" sid="317555597481516" static="0" type="number">0.2</variable>
+        <variable constant="0" name="doggySpeed" sid="342352824165088" static="0" type="number">30</variable>
+        <variable constant="0" name="dogTargetRadius" sid="334375029887103" static="0" type="number">30</variable>
+        <variable constant="0" name="doggyErrorMargin" sid="319247155053183" static="0" type="number">2</variable>
+        <event-group description="" sid="871276116395109" title="Dog">
+            <sub-events>
+                <event-block sid="546936962124431">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="174360504240108" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="859176667367202" type="dogSprite">
+                            <param id="0" name="Object">dog</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="734351514747262" type="dogSprite">
+                            <param id="0" name="Pin to">dog</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="258574536425674" type="dog">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action behavior="Timer" id="0" name="Start timer" sid="437230018816194" type="controller">
+                            <param id="0" name="Duration">2</param>
+                            <param id="1" name="Type">0</param>
+                            <param id="2" name="Tag">&quot;startDogMovement&quot;</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="928926088967106" type="dog">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="273549624469253">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="721547820398351" type="dog">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Speed">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="226033142269907">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="377162390505919" type="System">
+                                    <param id="0" name="Interval (seconds)">dogWaitTime</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="639551836587578" type="Function">
+                                    <param id="0" name="Name">&quot;dogPath&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="328358129856994">
+                    <conditions>
+                        <condition behavior="Timer" id="0" name="On timer" sid="403830716846038" type="controller">
+                            <param id="0" name="Tag">&quot;startDogMovement&quot;</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="228489548443554" type="dog">
+                            <param id="0" name="Instance variable">needNewTarget</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="475120170594863" type="Function">
+                            <param id="0" name="Name">&quot;dogPath&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="275794297002501">
+                    <conditions>
+                        <condition id="0" name="On function" sid="677186450200513" type="Function">
+                            <param id="0" name="Name">&quot;dogPath&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-27" name="Set effect enabled" sid="199054973733661" type="pickupSpawn">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;SetColor&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Choose spawn points within a radius</comment>
+                        <event-block sid="706676950127727">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="552634299610363" type="System">
+                                    <param id="0" name="Object">pickupSpawn</param>
+                                    <param id="1" name="Expression">((pickupSpawn.X &gt; dog.X-dogTargetRadius) &amp;  (pickupSpawn.X &lt; dog.X+dogTargetRadius)) &amp; ((pickupSpawn.Y &gt; dog.Y-dogTargetRadius )&amp;  (pickupSpawn.Y &lt; dog.Y+dogTargetRadius))</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="687037026073176">
+                                    <conditions>
+                                        <condition id="-16" name="Pick random instance" sid="853975607422305" type="System">
+                                            <param id="0" name="Object">pickupSpawn</param>
+                                        </condition>
+                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="909033494462351" type="dogSprite">
+                                            <param id="0" name="Object">pickupSpawn</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-27" name="Set effect enabled" sid="424132222984715" type="pickupSpawn">
+                                            <param id="0" name="Mode">1</param>
+                                            <param id="1" name="Effect">&quot;SetColor&quot;</param>
+                                        </action>
+                                        <action id="-28" name="Set effect parameter" sid="418025282558110" type="pickupSpawn">
+                                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <comment>THIS IS WHERE THE TARGET IS SELECTED - MORE CONDITIONS HERE IF NEED BE: If you have line of sight, start moving towards it.</comment>
+                                        <event-block sid="986604914975002">
+                                            <conditions>
+                                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="696508763910551" type="dog">
+                                                    <param id="0" name="Object">pickupSpawn</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Set position" sid="203783561655484" type="dogTarget">
+                                                    <param id="0" name="X">pickupSpawn.X</param>
+                                                    <param id="1" name="Y">pickupSpawn.Y</param>
+                                                </action>
+                                                <action id="-22" name="Set angle toward position" sid="664309122823999" type="dog">
+                                                    <param id="0" name="X">dogTarget.X</param>
+                                                    <param id="1" name="Y">dogTarget.Y</param>
+                                                </action>
+                                                <action behavior="Bullet" id="0" name="Set speed" sid="752376154211248" type="dog">
+                                                    <param id="0" name="Speed">doggySpeed</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="463007335341647" type="dog">
+                                                    <param id="0" name="Instance variable">needNewTarget</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>If you reach the target, start looking for the next point.</comment>
+                <event-block sid="444140889196297">
+                    <conditions>
+                        <condition id="-21" name="Is between values" sid="380509556507314" type="System">
+                            <param id="0" name="Value">dog.X</param>
+                            <param id="1" name="Lower bound">dogTarget.X-doggyErrorMargin</param>
+                            <param id="2" name="Upper bound">dogTarget.X+doggyErrorMargin</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="338438519770570" type="System">
+                            <param id="0" name="Value">dog.Y</param>
+                            <param id="1" name="Lower bound">dogTarget.Y-doggyErrorMargin</param>
+                            <param id="2" name="Upper bound">dogTarget.Y+doggyErrorMargin</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="113325457171984" type="dog">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
