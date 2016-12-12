@@ -6,7 +6,7 @@
         <variable constant="0" name="tempScore" sid="932679943724179" static="0" type="number">0</variable>
         <variable constant="0" name="revealWaitTime" sid="365983845686876" static="0" type="number">0.8</variable>
         <variable constant="0" name="totalPickups" sid="507343976786978" static="0" type="number">0</variable>
-        <variable constant="0" name="finalScore" sid="217870059735672" static="0" type="number">300</variable>
+        <variable constant="0" name="finalScore" sid="217870059735672" static="0" type="number">0</variable>
         <comment>Display pickup numbers/score from level</comment>
         <event-block sid="168096218444699">
             <conditions>

@@ -172,5 +172,40 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="499442190619375">
+            <conditions>
+                <condition id="0" name="On function" sid="794299894699644" type="Function">
+                    <param id="0" name="Name">&quot;dogHitReset&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="147598288748660" type="dog">
+                    <param id="0" name="X">-50</param>
+                    <param id="1" name="Y">-50</param>
+                </action>
+                <action id="-16" name="Wait" sid="923785220436809" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="719405884356262">
+                    <conditions>
+                        <condition id="-16" name="Pick random instance" sid="934314905453862" type="System">
+                            <param id="0" name="Object">pickupSpawn</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="186017872045737" type="dog">
+                            <param id="0" name="Object">pickupSpawn</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="375076980736969" type="Function">
+                            <param id="0" name="Name">&quot;dogPath&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>

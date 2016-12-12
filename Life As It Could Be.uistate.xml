@@ -10,9 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="0">End</layout>
-        <layout active="1" order="2">Start</layout>
-        <event-sheet order="1">End</event-sheet>
+        <layout order="1">Level</layout>
+        <event-sheet order="0">Player</event-sheet>
+        <event-sheet order="2">Dog</event-sheet>
+        <event-sheet active="1" order="3">Level</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -20,19 +21,19 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="1" name="Window Size" />
         <property expanded="1" name="Configuration Settings" />
     </properties>
-    <families-expanded root="0">
+    <families-expanded root="1">
         <family expanded="0" name="pickups" />
         <family expanded="0" name="GameEndPause" />
     </families-expanded>
     <folders-expanded>
-        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/" />
         <folder expanded="0" path="object-folder/Pickups/" />
         <folder expanded="0" path="object-folder/UI/" />
         <folder expanded="0" path="object-folder/enemies/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="file-folder/" />
-        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="0" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="1" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/money/" />
@@ -57,5 +58,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/pickupSpawn/" />
         <folder expanded="1" path="animation-folder/controller/" />
         <folder expanded="1" path="animation-folder/arrow/" />
+        <folder expanded="1" path="animation-folder/BORDER/" />
+        <folder expanded="1" path="animation-folder/Sprite7/" />
     </folders-expanded>
 </c2uistate>

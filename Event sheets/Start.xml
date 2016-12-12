@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Start</name>
+    <events>
+        <event-block sid="298373440542045">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="860952722741792" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set web font" sid="439546619410588" type="Title">
+                    <param id="0" name="Family name">&quot;Press Start 2P&quot;</param>
+                    <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="784792555158222" type="Title">
+                    <param id="0" name="Text">&quot;LIFE&quot;&amp;newline &amp;&quot;AS IT COULD BE&quot;</param>
+                </action>
+                <action id="5" name="Set web font" sid="868160906495878" type="Instruction">
+                    <param id="0" name="Family name">&quot;Press Start 2P&quot;</param>
+                    <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="734668587538960" type="ArrowsText">
+                    <param id="0" name="Text">&quot;USE ARROWS TO MOVE&quot;&amp;newline&amp;&quot;COLLECT PICKUPS&quot;&amp;newline&amp;newline&amp;&quot;&apos;LIVE LIFE&apos;&quot;&amp;newline&amp;&quot;AVOID IMBALANCE FOR HIGH SCORE&quot;</param>
+                </action>
+                <action behavior="Sine" id="0" name="Set active" sid="916017413538788" type="pickups">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="221858158433202">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="852981953518625" type="Keyboard" />
+            </conditions>
+            <actions>
+                <action id="-43" name="Go to next/previous layout" sid="426566886864259" type="System">
+                    <param id="0" name="Which">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

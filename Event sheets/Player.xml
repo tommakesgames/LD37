@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Player</name>
+    <events>
+        <variable constant="0" name="dogHitWaitTime" sid="915189823675780" static="0" type="number">4</variable>
+        <variable constant="0" name="playerMaxSpeed" sid="186003223697201" static="0" type="number">70</variable>
+        <event-block sid="407805722346505">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="908889747065374" type="player">
+                    <param id="0" name="Object">dogSprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="4" name="Set max speed" sid="789609389157673" type="player">
+                    <param id="0" name="Max Speed">player.8Direction.MaxSpeed*0.5</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="360414326921450" type="player">
+                    <param id="0" name="Duration">dogHitWaitTime</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;dogHitWait&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="848380559726586" type="Function">
+                    <param id="0" name="Name">&quot;dogHitReset&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="265449179863424">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="574903046288289" type="player">
+                    <param id="0" name="Tag">&quot;dogHitWait&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="4" name="Set max speed" sid="890299216913715" type="player">
+                    <param id="0" name="Max Speed">playerMaxSpeed</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

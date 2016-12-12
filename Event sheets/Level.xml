@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Level</name>
     <events>
+        <include>Player</include>
         <include>Dog</include>
         <include>Death</include>
         <variable constant="0" name="clockTimeBonus" sid="782456900303607" static="0" type="number">10</variable>
@@ -66,13 +67,13 @@
                             <param id="1" name="Type">0</param>
                             <param id="2" name="Tag">&quot;firstwallTimer&quot;</param>
                         </action>
-                        <action id="-15" name="Set visible" sid="575323268499702" type="pickupSpawn">
+                        <action disabled="1" id="-15" name="Set visible" sid="575323268499702" type="pickupSpawn">
                             <param id="0" name="Visibility">0</param>
                         </action>
                         <action id="-15" name="Set visible" sid="694774655321509" type="deathTarget">
                             <param id="0" name="Visibility">0</param>
                         </action>
-                        <action id="-15" name="Set visible" sid="669050573238404" type="dogTarget">
+                        <action disabled="1" id="-15" name="Set visible" sid="669050573238404" type="dogTarget">
                             <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
